@@ -1,8 +1,19 @@
-from streamlit_webrtc import webrtc_streamer
+import streamlit as st
+from PIL import Image
 
-webrtc_streamer(key="sample", 
-    rtc_configuration={  # Add this config
-        "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
-    }
-    # ...
-)
+
+def grayscale(image):
+    return image.convert('L')
+
+
+st.title("Grayscale Image Converter")
+
+# Upload an image
+image_file = st.file_uploader("Upload an image", type=['jpg', 'jpeg', 'png'])
+
+if image_file is not None:
+    # Open and display the original image
+    image = Image.open(image_file)
+    # Convert to grayscale
+    grayscale_image = grayscale(image)
+    st.image(grayscale_image, caption="Grayscale Image", use_column_width=True)
