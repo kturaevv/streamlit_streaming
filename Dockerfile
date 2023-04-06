@@ -31,9 +31,9 @@ RUN apt-get update && \
 COPY requirements.txt .
 RUN pip3 install -U pip && \
 	pip3 install setuptools && \
-	pip3 install -r requirements.txt \
-    pip3 install torch torchvision \
-    --index-url https://download.pytorch.org/whl/cu117
+	pip3 install -r requirements.txt
+
+RUN pip3 install torch torchvision
 	
 FROM builder as final
 

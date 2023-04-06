@@ -17,14 +17,15 @@ css = """
         """
 st.markdown(css, unsafe_allow_html=True)
 # Upload an image
-image_file = st.file_uploader("Upload an image", type=['jpg', 'jpeg', 'png'])
+file_inputs = st.file_uploader("Upload an image", type=['jpg', 'jpeg', 'png'], accept_multiple_files=True)
 
-if image_file is not None:
-    # Open and display the original image
-    image = Image.open(image_file)
-    # Define tranform
-    transform = torchvision.transforms.Grayscale()
-    # Convert to grayscale
-    grayscale_image = transform(image)
-    # Depict tranformed image
-    st.image(grayscale_image, caption="Grayscale Image", use_column_width=True)
+if file_inputs is not None:
+    for image_file in file_inputs: 
+        # Open and display the original image
+        image = Image.open(image_file)
+        # Define tranform
+        transform = torchvision.transforms.Grayscale()
+        # Convert to grayscale
+        grayscale_image = transform(image)
+        # Depict tranformed image
+        st.image(grayscale_image, caption="Grayscale Image", use_column_width=True)
