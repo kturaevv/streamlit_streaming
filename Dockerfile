@@ -28,7 +28,7 @@ FROM base as builder
 RUN apt-get update && \
 	apt-get -y install libpq-dev gcc
 
-COPY requirements.lock.txt .
+COPY requirements.txt .
 RUN pip3 install -U pip && \
 	pip3 install setuptools && \
 	pip3 install -r requirements.txt \
