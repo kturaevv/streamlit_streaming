@@ -1,0 +1,3 @@
+[submodule "model"]
+	path = model
+	url = git@bitbucket.org:st_code/greenhouse-plants-app.git
