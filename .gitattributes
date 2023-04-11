@@ -1,0 +1,2 @@
+detection_pipeline/weights/classifier.pt filter=lfs diff=lfs merge=lfs -text
+detection_pipeline/weights/yolo.pt filter=lfs diff=lfs merge=lfs -text
