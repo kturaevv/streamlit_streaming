@@ -1,7 +1,7 @@
 up:
 	docker container rm app || echo ""
 	docker build -t app -f Dockerfile .
-	docker run --rm -d -p 8501:8501 --name app  app
+	docker run -d -p 8501:8501 --name app --restart=always app
 
 down:
 	docker container stop app
